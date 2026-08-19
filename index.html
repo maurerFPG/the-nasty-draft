@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The 'Nasty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bokeh" aria-hidden="true"></div>
+  <div class="app">
+    <header class="topbar glass">
+      <div class="brand">
+        <h1>The 'Nasty</h1>
+        <p>12-team SF · snake + 3RR · slot 3</p>
+      </div>
+      <div class="clock-block">
+        <div class="status-row">
+          <span class="status-pill" id="draft-status">PRE-DRAFT</span>
+          <span class="poll-dot" id="poll-dot" title="picks poll"></span>
+        </div>
+        <div class="countdown" id="countdown">—</div>
+        <div class="start-label">Thu Aug 20 · 7:30 PM CT · 4-hour timer</div>
+      </div>
+      <div class="rob-chip" id="rob-chip">
+        <div class="rob-kicker">You · slot 3</div>
+        <div class="rob-name">Maurer Hour</div>
+        <div class="rob-next" id="rob-next">Next: 1.03</div>
+      </div>
+      <div class="top-actions">
+        <button type="button" class="btn" id="btn-refresh">Refresh</button>
+        <div class="poll-meta" id="poll-meta">Picks poll every 30s</div>
+      </div>
+    </header>
+
+    <section class="board-pane glass" id="board-pane">
+      <div class="board-scroll" id="board-scroll">
+        <div class="board" id="board"></div>
+      </div>
+    </section>
+    <div class="splitter h" id="split-h" role="separator" aria-orientation="horizontal" aria-label="Resize draft board"></div>
+
+    <section class="card-pane glass" id="card-pane">
+      <div class="card-scroll" id="player-card" aria-live="polite">
+        <div class="card-empty">Click a player</div>
+      </div>
+    </section>
+    <div class="splitter h" id="split-h-card" role="separator" aria-orientation="horizontal" aria-label="Resize player card"></div>
+
+    <section class="mypicks glass" id="mypicks">
+      <div class="mp-label">My picks</div>
+      <div class="mp-row" id="mypicks-list"><span class="mp-empty">No picks yet</span></div>
+    </section>
+
+    <div class="toolbar glass" id="filters">
+      <div class="pos-tabs" role="tablist">
+        <button type="button" class="pos on" data-pos="ALL">All</button>
+        <button type="button" class="pos pos-qb" data-pos="QB">QB</button>
+        <button type="button" class="pos pos-rb" data-pos="RB">RB</button>
+        <button type="button" class="pos pos-wr" data-pos="WR">WR</button>
+        <button type="button" class="pos pos-te" data-pos="TE">TE</button>
+        <button type="button" class="pos pos-star" data-pos="TARGETS">Targets</button>
+      </div>
+      <span class="legend" title="Official Sleeper trending (48h) plus public news / r/DynastyFF full-name buzz. Not Twitter/X.">🔥 trending add or rising news/r/DynastyFF buzz · 🧊 trending drop (48h)</span>
+      <label class="search">
+        <input type="search" id="search" placeholder="Find name or team…" autocomplete="off" />
+      </label>
+    </div>
+
+    <section class="cols" id="cols">
+      <aside class="col glass" id="col-fo">
+        <header class="col-head">
+          <div>
+            <h2>Sleeper-sample ADP</h2>
+            <p>Fantasy Orphans 12-team SF TEP — stand-in, not official Sleeper</p>
+          </div>
+          <span class="count" id="count-fo"></span>
+        </header>
+        <div class="list" id="list-fo"></div>
+      </aside>
+      <div class="splitter v" id="split-v" role="separator" aria-orientation="vertical" aria-label="Resize columns"></div>
+      <aside class="col glass" id="col-fp">
+        <header class="col-head">
+          <div>
+            <h2>FantasyPros SF ECR</h2>
+            <p>Superflex dynasty expert consensus</p>
+          </div>
+          <span class="count" id="count-fp"></span>
+        </header>
+        <div class="list" id="list-fp"></div>
+      </aside>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
